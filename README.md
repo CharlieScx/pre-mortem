@@ -48,12 +48,20 @@ pre-mortem
 # Direct mode — pass your decision as an argument
 pre-mortem "I'm going to invest my savings in crypto"
 
-# Options
+# Switch AI provider
+pre-mortem "..." --provider openai           # Use OpenAI (GPT-4o)
+pre-mortem "..." --provider openrouter       # Use OpenRouter (any model)
+pre-mortem "..." --provider anthropic        # Use Anthropic Claude (default)
+
+# Use a custom OpenAI-compatible endpoint (DeepSeek, Qwen, etc.)
+pre-mortem "..." --provider openai --base-url https://api.deepseek.com/v1
+
+# Other options
 pre-mortem "我要辞职创业" --lang zh          # Force Chinese output
 pre-mortem "..." --format markdown           # Markdown output
 pre-mortem "..." --format json               # JSON output
 pre-mortem "..." --save result.md            # Save to file
-pre-mortem "..." --model claude-opus-4-7  # Use a different model
+pre-mortem "..." --model claude-opus-4-7     # Use a specific model
 ```
 
 ## Example Output
@@ -113,15 +121,23 @@ Most AI tools help you plan for success. But decades of research in behavioral p
 
 ## Configuration
 
-The tool requires a Claude API key. Get one at [console.anthropic.com](https://console.anthropic.com/settings/keys).
+Supports **3 providers** — the tool auto-detects which API key is set:
 
 ```bash
-# Set via environment variable
+# Anthropic Claude (default)
 export ANTHROPIC_API_KEY=sk-ant-...
 
-# Or use a .env file in your project
-echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
+# OpenAI / OpenAI-compatible (GPT-4o, DeepSeek, Qwen, etc.)
+export OPENAI_API_KEY=sk-...
+
+# OpenRouter (access any model with one key)
+export OPENROUTER_API_KEY=sk-or-...
 ```
+
+Get keys at:
+- Anthropic: [console.anthropic.com](https://console.anthropic.com/settings/keys)
+- OpenAI: [platform.openai.com](https://platform.openai.com/api-keys)
+- OpenRouter: [openrouter.ai](https://openrouter.ai/keys)
 
 ## Contributing
 

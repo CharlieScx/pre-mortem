@@ -26,8 +26,10 @@
 # 安装
 npm install -g pre-mortem
 
-# 设置 API 密钥
-export ANTHROPIC_API_KEY=sk-ant-...
+# 设置 API 密钥（三选一）
+export ANTHROPIC_API_KEY=sk-ant-...    # Anthropic Claude
+export OPENAI_API_KEY=sk-...           # OpenAI / 兼容接口
+export OPENROUTER_API_KEY=sk-or-...    # OpenRouter（一个 key 用所有模型）
 
 # 运行
 pre-mortem "我要辞职去做独立开发"
@@ -48,12 +50,20 @@ pre-mortem
 # 直接模式——把决策作为参数传入
 pre-mortem "我要把积蓄投入加密货币"
 
-# 选项
+# 切换 AI 供应商
+pre-mortem "..." --provider openai           # 使用 OpenAI (GPT-4o)
+pre-mortem "..." --provider openrouter       # 使用 OpenRouter
+pre-mortem "..." --provider anthropic        # 使用 Anthropic Claude（默认）
+
+# 使用 OpenAI 兼容接口（DeepSeek、通义千问等）
+pre-mortem "..." --provider openai --base-url https://api.deepseek.com/v1
+
+# 其他选项
 pre-mortem "I want to quit my job" --lang en   # 强制英文输出
 pre-mortem "..." --format markdown              # Markdown 格式输出
 pre-mortem "..." --format json                  # JSON 格式输出
 pre-mortem "..." --save result.md               # 保存结果到文件
-pre-mortem "..." --model claude-opus-4-7     # 使用不同模型
+pre-mortem "..." --model claude-opus-4-7        # 指定模型
 ```
 
 ## 为什么需要 Pre-Mortem？
