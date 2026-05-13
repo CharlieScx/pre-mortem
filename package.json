@@ -1,0 +1,49 @@
+{
+  "name": "pre-mortem",
+  "version": "0.1.0",
+  "description": "Every AI helps you succeed. This one helps you rehearse failure. — AI-powered Pre-Mortem analysis based on Gary Klein's prospective hindsight method.",
+  "type": "module",
+  "bin": {
+    "pre-mortem": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "ai",
+    "pre-mortem",
+    "decision-making",
+    "claude",
+    "cli",
+    "gary-klein",
+    "prospective-hindsight",
+    "failure-analysis"
+  ],
+  "author": "CharlieScx",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@inquirer/prompts": "^7.0.0",
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlieScx/pre-mortem.git"
+  }
+}
